@@ -1,0 +1,42 @@
+<html>
+<head>
+  <title>Angular Hello World</title>
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <div ng-app="buzz" ng-controller="buzzwordController">
+    <h1>Count the Buzzwords you hear</h1>
+    <h2>no talk will be boring again</h2>
+
+    <form ng-submit="add(newBuzzword)">
+      <input type="text" ng-model="newBuzzword" class="new-buzzword-field"/>
+    </form>
+
+    <div masonry class="buzzwords" column-width="20">
+      <div class="buzzword masonry-brick" ng-repeat="buzzword in buzzwords | orderBy : 'count' : true">
+        {{buzzword.name}} <a href="#" class="plus-button" ng-click="increment(buzzword)">+</a> <span class="counter">{{buzzword.count}}</span>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="bower_components/jquery/dist/jquery.js"></script>
+  <script src="bower_components/jquery-bridget/jquery.bridget.js"></script>
+  <script src="bower_components/get-style-property/get-style-property.js"></script>
+  <script src="bower_components/get-size/get-size.js"></script>
+  <script src="bower_components/eventEmitter/EventEmitter.js"></script>
+  <script src="bower_components/eventie/eventie.js"></script>
+  <script src="bower_components/doc-ready/doc-ready.js"></script>
+  <script src="bower_components/matches-selector/matches-selector.js"></script>
+  <script src="bower_components/outlayer/item.js"></script>
+  <script src="bower_components/outlayer/outlayer.js"></script>
+  <script src="bower_components/masonry/masonry.js"></script>
+  <script src="bower_components/imagesloaded/imagesloaded.js"></script>
+  <script src="bower_components/jquery-bridget/jquery.bridget.js"></script>
+
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/angular-masonry/angular-masonry.js"></script>
+
+  <script type="text/javascript" src="app.js"></script>
+</body>
+</html>
