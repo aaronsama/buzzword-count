@@ -2,13 +2,31 @@ body {
   font-family: sans-serif
 }
 
+h1 {
+  font-size: 4em;
+  text-align: center
+}
+
+h2 {
+
+  font-size: 3.5em;
+  text-align: center
+}
+
+.new-buzzword-form {
+  margin: auto;
+  width: 50%
+}
+
 .new-buzzword-field {
   font-size: 3em;
+  width: 100%;
 }
 
 .buzzwords {
   font-size: 2.5em;
   position: relative;
+  margin-top: 1em;
 }
 
 .buzzword {
@@ -18,11 +36,34 @@ body {
   border: 1px solid lightblue;
 }
 
-.buzzword .plus-button {
+.button {
   color: white;
   text-decoration: none;
   border: 1px solid orange;
-  background-color: salmon;
   padding-left: 5px;
   padding-right: 5px;
+}
+
+.buzzword .button.plus, h1 .highlight {
+  background-color: salmon;
+}
+
+.buzzword .button.minus {
+  background-color: teal;
+  padding: 0 10px;
+}
+
+.buzzword .button.ok {
+  background-color: lightgreen;
+}
+
+.buzzword-name-edit {
+  float: left;
+  margin-bottom: 0;
+}
+
+.buzzword-name-edit-field {
+  font-size: 1em;
+  border: none;
+  width: 100%;
 }

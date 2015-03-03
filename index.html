@@ -5,16 +5,23 @@
 </head>
 <body>
   <div ng-app="buzz" ng-controller="buzzwordController">
-    <h1>Count the Buzzwords you hear</h1>
-    <h2>no talk will be boring again</h2>
+    <h1>buzzword <span class="highlight button">+</span></h1>
+    <!-- <h2>no talk will be boring again</h2> -->
 
-    <form ng-submit="add(newBuzzword)">
+    <form ng-submit="add(newBuzzword)" class="new-buzzword-form">
       <input type="text" ng-model="newBuzzword" class="new-buzzword-field"/>
     </form>
 
     <div masonry class="buzzwords" column-width="20">
       <div class="buzzword masonry-brick" ng-repeat="buzzword in buzzwords | orderBy : 'count' : true">
-        {{buzzword.name}} <a href="#" class="plus-button" ng-click="increment(buzzword)">+</a> <span class="counter">{{buzzword.count}}</span>
+        <span class="buzzword-name" ng-dblclick="edit(buzzword)" ng-if="!buzzword.editing">{{buzzword.name}}</span>
+        <form ng-submit="update(buzzword)" class="buzzword-name-edit" ng-if="buzzword.editing">
+          <input type="text" ng-model="buzzword.name" class="buzzword-name-edit-field" ng-blur="update(buzzword)" />
+        </form>
+        <a href="#" class="minus button" ng-click="reduce(buzzword)" ng-if="buzzword.editing">-</a>
+        <a href="#" class="plus button" ng-click="increment(buzzword)">+</a>
+        <span class="counter">{{buzzword.count}}</span>
+        <a href="#" class="ok button" ng-click="update(buzzword)" ng-if="buzzword.editing">ok</a>
       </div>
     </div>
 
